@@ -486,10 +486,9 @@ LOCAL void RF24_irqHandler(void)
 		noInterrupts();
 		attachInterrupt(digitalPinToInterrupt(MY_RF24_IRQ_PIN), RF24_irqHandler, FALLING);
 #endif
-	} else {
+	}
 		// clear RX interrupt
 		RF24_setStatus(_BV(RF24_RX_DR));
-	}
 }
 
 LOCAL void RF24_registerReceiveCallback(RF24_receiveCallbackType cb)
