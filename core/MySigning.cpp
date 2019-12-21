@@ -412,7 +412,7 @@ static bool signerInternalProcessPresentation(MyMessage &msg)
 #if defined(MY_SIGNING_WEAK_SECURITY)
 		// We received an indicator that the sender does not require us to sign messages we send to it
 		SIGN_DEBUG(PSTR("SGN:PRE:SGN NREQ,FROM=%" PRIu8 "\n"), sender); // Node does not require signatures
-		CLEAR_SIGN(sender);
+		//CLEAR_SIGN(sender);
 #else
 		if (DO_SIGN(sender)) {
 			SIGN_DEBUG(PSTR("!SGN:PRE:SGN NREQ,FROM=%" PRIu8 " REJ\n"),
@@ -429,7 +429,7 @@ static bool signerInternalProcessPresentation(MyMessage &msg)
 		// We received an indicator that the sender does not require us to sign messages we send to it
 		SIGN_DEBUG(PSTR("SGN:PRE:WHI NREQ,FROM=%" PRIu8 "\n"),
 		           sender); // Node does not require whitelisting
-		CLEAR_WHITELIST(sender);
+		//CLEAR_WHITELIST(sender);
 #else
 		if (DO_WHITELIST(sender)) {
 			SIGN_DEBUG(PSTR("!SGN:PRE:WHI NREQ,FROM=%" PRIu8 " REJ\n"),

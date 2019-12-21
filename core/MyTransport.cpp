@@ -702,6 +702,7 @@ void transportProcessMessage(void)
 		// Check if sender requests an echo.
 		if (_msg.getRequestEcho()) {
 			TRANSPORT_DEBUG(PSTR("TSF:MSG:ECHO REQ\n"));	// ECHO requested
+			 delay(5); //FIXME: Without this delay, high-speed microcontrollers (nrf52832, nrf52840) do not receive ACK acknowledgments. This is a temporary crutch.
 			_msgTmp = _msg;	// Copy message
 			// Reply without echo flag (otherwise we would end up in an eternal loop)
 			_msgTmp.setRequestEcho(false);
