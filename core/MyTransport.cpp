@@ -858,6 +858,13 @@ void transportProcessMessage(void)
 				// only reply if node is fully operational
 				if (type == I_FIND_PARENT_REQUEST) {
 #if defined(MY_REPEATER_FEATURE)
+
+#if defined(MY_REPEATER_FEATURE_WITHOUT_UPS)
+					if (sender < 100) {
+						return;
+					}
+#endif
+
 					if (sender != _transportConfig.parentNodeId) {	// no circular reference
 						TRANSPORT_DEBUG(PSTR("TSF:MSG:FPAR REQ,ID=%" PRIu8 "\n"), sender);	// FPAR: find parent request
 						// check if uplink functional - node can only be parent node if link to GW functional

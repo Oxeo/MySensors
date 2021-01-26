@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/Oxeo/MySensors"
   },
-  "version": "2.3.100",
+  "version": "2.3.101",
   "frameworks": "arduino",
   "platforms": "*",
   "export": {
